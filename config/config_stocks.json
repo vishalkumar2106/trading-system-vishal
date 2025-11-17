@@ -1,0 +1,146 @@
+{
+  "strategy": "MyStrategy",
+  "mode": "paper",
+  
+  "capital": {
+    "initial": 200000,
+    "currency": "INR"
+  },
+  
+  "broker": {
+    "primary": "angelone",
+    "backup": "groww",
+    "failover_enabled": true,
+    "max_retries": 3
+  },
+  
+  "openalgo": {
+    "api_key": "${OPENALGO_API_KEY}",
+    "host": "${OPENALGO_HOST}",
+    "timeout": 30
+  },
+  
+  "asset_config": {
+    "type": "index_futures",
+    "symbol": "NIFTY",
+    "exchange": "NFO",
+    "product": "MIS",
+    "expiry_management": {
+      "min_days_to_expiry": 7,
+      "auto_rollover": true
+    }
+  },
+  
+  "leverage": {
+    "index_futures": 9.0,
+    "commodity_silverm": 5.0,
+    "commodity_crudeoilm": 3.0,
+    "options": 1.0
+  },
+  
+  "risk_management": {
+    "take_profit_pct": 0.10,
+    "stop_loss_pct": 0.005,
+    "commission_rate": 0.0001,
+    "max_daily_loss_pct": 5.0,
+    "max_drawdown_pct": 15.0,
+    "trailing_stop": false
+  },
+  
+  "strategy_parameters": {
+    "rsi_ema_veryfast": 20,
+    "rsi_ema_fast": 50,
+    "rsi_ema_slow": 100,
+    "rsi_long_threshold": 60.0,
+    "rsi_short_threshold": 40.0,
+    "atr_period": 25,
+    "supertrend_multiplier": 3.0,
+    "cpr_wide_threshold": 0.015
+  },
+  
+  "additional_indicators": {
+    "use_macd": false,
+    "use_bollinger_bands": false,
+    "use_support_resistance": false
+  },
+  
+  "time_restrictions": {
+    "forbidden_entry_start": "09:15",
+    "forbidden_entry_end": "10:00",
+    "forbidden_exit_start": "09:15",
+    "forbidden_exit_end": "09:45",
+    "trading_hours": {
+      "start": "09:15",
+      "end": "15:30"
+    }
+  },
+  
+  "order_config": {
+    "order_type": "BRACKET",
+    "price_type": "MARKET",
+    "validity": "DAY",
+    "disclosed_quantity": 0
+  },
+  
+  "data_feed": {
+    "provider": "historify",
+    "timeframe": "15m",
+    "history_days": 100
+  },
+  
+  "telegram": {
+    "enabled": true,
+    "token": "${TELEGRAM_BOT_TOKEN}",
+    "chat_id": "${TELEGRAM_CHAT_ID}",
+    "notifications": {
+      "entry": true,
+      "exit": true,
+      "daily_summary": true,
+      "errors": true
+    }
+  },
+  
+  "email": {
+    "enabled": true,
+    "smtp_server": "${SMTP_SERVER}",
+    "smtp_port": 587,
+    "smtp_username": "${SMTP_USERNAME}",
+    "smtp_password": "${SMTP_PASSWORD}",
+    "from_email": "${SMTP_FROM_EMAIL}",
+    "daily_report": true,
+    "daily_report_time": "18:00"
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "/var/log/trading-bot/stocks.log",
+    "max_size_mb": 100,
+    "backup_count": 5
+  },
+  
+  "database": {
+    "url": "${DATABASE_URL}",
+    "pool_size": 5
+  },
+  
+  "backtest": {
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "data_file": null,
+    "save_results": true,
+    "output_dir": "./backtest_results"
+  },
+  
+  "options_trading": {
+    "enabled": false,
+    "option_type": "CALL",
+    "strike_selection": "ATM",
+    "min_days_to_expiry": 7
+  },
+  
+  "monitoring": {
+    "health_check_interval": 60,
+    "restart_on_error": true,
+    "max_restart_attempts": 3
+  }
+}
