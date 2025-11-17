@@ -1,0 +1,13 @@
+backtrader==1.9.78.123
+freqtrade==2024.1
+ccxt==4.2.0
+pandas==2.0.3
+numpy==1.24.3
+pandas-ta==0.3.14b0
+streamlit==1.28.0
+python-telegram-bot==20.7
+flask==3.0.0
+flask-cors==4.0.0
+psycopg2-binary==2.9.9
+requests==2.31.0
+python-dotenv==1.0.0
