@@ -1,5 +1,5 @@
 {
-  "strategy": "MyCryptoStrategy",
+  "strategy": "my_crypto_strategy",
   "max_open_trades": 3,
   "stake_currency": "USDT",
   "stake_amount": "unlimited",
