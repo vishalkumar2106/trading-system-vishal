@@ -1,0 +1,11 @@
+[submodule "openalgo"]
+	path = openalgo
+	url = https://github.com/vishalkumar2106/openalgo.git
+	
+[submodule "historify"]
+	path = historify
+	url = https://github.com/vishalkumar2106/historify.git
+	
+[submodule "freqtrade"]
+	path = freqtrade
+	url = https://github.com/vishalkumar2106/freqtrade.git
