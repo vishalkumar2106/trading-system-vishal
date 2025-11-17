@@ -1,5 +1,5 @@
 {
-  "strategy": "MyStrategy",
+  "strategy": "my_Strategy",
   "mode": "paper",
   
   "capital": {
