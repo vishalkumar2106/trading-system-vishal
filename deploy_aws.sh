@@ -43,13 +43,13 @@ sudo apt-get install -y \
 echo "📥 Cloning repository..."
 cd /home/ubuntu
 
-if [ -d "my-trading-system" ]; then
+if [ -d "trading-system-vishal" ]; then
     echo "Repository already exists, pulling latest changes..."
-    cd my-trading-system
+    cd trading-system-vishal
     git pull
 else
     echo "Cloning repository..."
-    git clone https://github.com/YOUR_USERNAME/my-trading-system.git
+    git clone https://github.com/vishalkumar2106/trading-system-vishal.git
     cd my-trading-system
 fi
 
@@ -229,10 +229,10 @@ After=network.target
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/home/ubuntu/my-trading-system
-Environment="PATH=/home/ubuntu/my-trading-system/venv/bin"
-EnvironmentFile=/home/ubuntu/my-trading-system/.env
-ExecStart=/home/ubuntu/my-trading-system/venv/bin/streamlit run ui/app.py --server.port 8501 --server.address 0.0.0.0
+WorkingDirectory=/home/ubuntu/trading-system-vishal
+Environment="PATH=/home/ubuntu/trading-system-vishal/venv/bin"
+EnvironmentFile=/home/ubuntu/trading-system-vishal/.env
+ExecStart=/home/ubuntu/trading-system-vishal/venv/bin/streamlit run ui/app.py --server.port 8501 --server.address 0.0.0.0
 Restart=always
 RestartSec=10
 
@@ -249,10 +249,10 @@ After=network.target
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/home/ubuntu/my-trading-system
-Environment="PATH=/home/ubuntu/my-trading-system/venv/bin"
-EnvironmentFile=/home/ubuntu/my-trading-system/.env
-ExecStart=/home/ubuntu/my-trading-system/venv/bin/python telegram_bot.py
+WorkingDirectory=/home/ubuntu/trading-system-vishal
+Environment="PATH=/home/ubuntu/trading-system-vishal/venv/bin"
+EnvironmentFile=/home/ubuntu/trading-system-vishal/.env
+ExecStart=/home/ubuntu/trading-system-vishal/venv/bin/python telegram_bot.py
 Restart=always
 RestartSec=10
 
@@ -343,7 +343,7 @@ echo ""
 echo "⚠️  NEXT STEPS:"
 echo ""
 echo "1. Edit API keys:"
-echo "   nano /home/ubuntu/my-trading-system/.env"
+echo "   nano /home/ubuntu/trading-system-vishal/.env"
 echo ""
 echo "2. Start trading bots (AFTER configuring .env):"
 echo "   Paper trading:"
@@ -364,7 +364,7 @@ echo "   sudo journalctl -u streamlit-ui -f"
 echo "   sudo journalctl -u freqtrade -f"
 echo ""
 echo "5. Update code:"
-echo "   cd /home/ubuntu/my-trading-system"
+echo "   cd /home/ubuntu/trading-system-vishal"
 echo "   git pull"
 echo "   sudo systemctl restart <service-name>"
 echo ""
