@@ -1,0 +1,125 @@
+{
+  "strategy": "MyCryptoStrategy",
+  "max_open_trades": 3,
+  "stake_currency": "USDT",
+  "stake_amount": "unlimited",
+  "tradable_balance_ratio": 0.99,
+  
+  "dry_run": true,
+  "dry_run_wallet": 10000,
+  "cancel_open_orders_on_exit": true,
+  
+  "exchange": {
+    "name": "delta",
+    "key": "${DELTA_API_KEY}",
+    "secret": "${DELTA_API_SECRET}",
+    
+    "ccxt_config": {
+      "enableRateLimit": true,
+      "rateLimit": 50,
+      "timeout": 30000,
+      "options": {
+        "defaultType": "future",
+        "adjustForTimeDifference": true
+      }
+    },
+    
+    "ccxt_async_config": {
+      "enableRateLimit": true,
+      "rateLimit": 50
+    },
+    
+    "pair_whitelist": [
+      "BTC/USDT:USDT",
+      "ETH/USDT:USDT"
+    ],
+    
+    "pair_blacklist": []
+  },
+  
+  "entry_pricing": {
+    "price_side": "same",
+    "use_order_book": true,
+    "order_book_top": 1,
+    "check_depth_of_market": {
+      "enabled": false,
+      "bids_to_ask_delta": 1
+    }
+  },
+  
+  "exit_pricing": {
+    "price_side": "same",
+    "use_order_book": true,
+    "order_book_top": 1
+  },
+  
+  "order_types": {
+    "entry": "limit",
+    "exit": "limit",
+    "emergency_exit": "market",
+    "force_entry": "market",
+    "force_exit": "market",
+    "stoploss": "market",
+    "stoploss_on_exchange": true,
+    "stoploss_on_exchange_interval": 60,
+    "stoploss_on_exchange_limit_ratio": 0.99
+  },
+  
+  "order_time_in_force": {
+    "entry": "GTC",
+    "exit": "GTC"
+  },
+  
+  "pairlists": [
+    {
+      "method": "StaticPairList"
+    }
+  ],
+  
+  "telegram": {
+    "enabled": true,
+    "token": "${TELEGRAM_BOT_TOKEN}",
+    "chat_id": "${TELEGRAM_CHAT_ID}",
+    "notification_settings": {
+      "status": "on",
+      "warning": "on",
+      "startup": "on",
+      "entry": "on",
+      "entry_cancel": "on",
+      "entry_fill": "on",
+      "exit": "on",
+      "exit_cancel": "on",
+      "exit_fill": "on",
+      "protection_trigger": "on",
+      "protection_trigger_global": "on"
+    },
+    "reload": true,
+    "balance_dust_level": 0.01
+  },
+  
+  "api_server": {
+    "enabled": true,
+    "listen_ip_address": "0.0.0.0",
+    "listen_port": 8080,
+    "verbosity": "error",
+    "enable_openapi": true,
+    "jwt_secret_key": "${FREQTRADE_JWT_SECRET}",
+    "ws_token": "${FREQTRADE_WS_TOKEN}",
+    "CORS_origins": [],
+    "username": "${FREQTRADE_API_USERNAME}",
+    "password": "${FREQTRADE_API_PASSWORD}"
+  },
+  
+  "bot_name": "CryptoTradingBot",
+  "initial_state": "running",
+  "force_entry_enable": true,
+  
+  "internals": {
+    "process_throttle_secs": 5,
+    "interval": 3,
+    "sd_notify": false
+  },
+  
+  "dataformat_ohlcv": "json",
+  "dataformat_trades": "jsongz"
+}
